@@ -33,6 +33,13 @@ def is_sha1(obj_str):
     pass
 
 
+def is_sha256(sha256):
+    if len(sha256) == 64 and is_hex(sha256):
+        return True
+    return False
+    pass
+
+
 def is_hex(obj_str):
     if obj_str is None:
         return False

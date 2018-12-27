@@ -26,3 +26,11 @@ def sha1_str(obj_str):
     sha1_hash = hashlib.sha1(obj_str.encode(encoding='utf-8'))
     return sha1_hash.hexdigest()
 
+
+def sha256_str(obj_str):
+    """
+    :param obj_str: string
+    :return:    字符串的sha1
+    """
+    sha256_hash = hashlib.sha256(obj_str.encode(encoding='utf-8'))
+    return sha256_hash.hexdigest()

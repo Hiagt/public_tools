@@ -23,6 +23,7 @@ def file_md5(file_dir):
     # 以二进制打开文件
     with open(f_dir, 'rb') as openfile:
         while True:
+            # 文件读取
             data = openfile.read(BLOCK_SIZE)
             if not data:
                 break
@@ -36,6 +37,21 @@ def file_sha1(file_dir):
     :return: 文件sha1
     """
     my_hash = hashlib.sha1()
+    with open(file_dir, 'rb') as openfile:
+        while True:
+            data = openfile.read(BLOCK_SIZE)
+            if not data:
+                break
+            my_hash.update(data)
+    return my_hash.hexdigest()
+
+
+def file_sha256(file_dir):
+    """
+    :param file_dir: 接受文件地址
+    :return: 文件sha1
+    """
+    my_hash = hashlib.sha256()
     with open(file_dir, 'rb') as openfile:
         while True:
             data = openfile.read(BLOCK_SIZE)
